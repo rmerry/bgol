@@ -30,18 +30,16 @@ function draw {
     if [[ $DOUBLE_WIDTH == true ]] ; then
         for ((i=0; i<=$NCELLS; i++)) do
             if [[ ${CELLS[$i]} == $ACTIVE ]] ; then
-                local y=$((i/COLS))
-                local x1=$(((i%COLS)*2-1))
-                local x2=$(((i%COLS)*2))
-                echo -en "\033[$y;${x1}H\033[0;100m \033[0m"
-                echo -en "\033[$y;${x2}H\033[0;100m \033[0m"
+                local y="$((i/COLS))"
+                local x="$(((i%COLS+1)*2-1))"
+                echo -en "\033[$y;${x}H\033[0;100m  \033[0m"
             fi
         done
     else
         for ((i=0; i<=$NCELLS; i++)) do
             if [[ ${CELLS[$i]} == $ACTIVE ]] ; then
-                local y=$((i/COLS))
-                local x=$((i%COLS))
+                local y="$((i/COLS))"
+                local x="$((i%COLS))"
                 echo -en "\033[$y;${x}H\033[0;100m \033[0m"
             fi
         done
