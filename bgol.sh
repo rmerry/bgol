@@ -81,7 +81,7 @@ function init {
         fi
     done
 
-    # Calculating the indicies of the neighbours for a given cell is costly 
+    # Calculating the indicies of the neighbours for a given cell is costly
     # in realtime, calculate and cache the list of neighbours for all cells
 
     echo "Precaching resources..."
@@ -132,7 +132,7 @@ function update {
 
         if [[ $neighbours -eq 3 ]] ; then
             dcells[$i]=$ACTIVE
-        elif [[ $neighbours -eq 2 ]] && 
+        elif [[ $neighbours -eq 2 ]] &&
              [[ ${CELLS[$i]} == $ACTIVE ]] ; then
             dcells[$i]=$ACTIVE
         else
@@ -145,14 +145,14 @@ function update {
 
 function print_usage {
     echo "Usage: $PROGRAM_NAME [OPTIONS]"
-    echo 
+    echo
     echo "OPTIONS:"
-    echo "  -D,     --double-space               Use two columns per cell"
+    echo "  -D,     --double-width               Use two columns per cell"
     echo "  -h,     --help                       Display this message and exit"
     echo "  -m=NUM, --speed=NUM                  Cellular evolution speed in milliseconds;"
     echo "                                       defaults to 1000"
     echo "  -s=NUM, --size=NUM                   Grid size; defaults to 20"
-    echo 
+    echo
 
     exit $1
 }
